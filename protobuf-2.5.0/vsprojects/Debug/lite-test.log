@@ -1,0 +1,13 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (libprotobuf-lite.vcxproj, libprotobuf.vcxproj, libprotoc.vcxproj, protoc.vcxproj, tests.vcxproj, test_plugin.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Generating unittest_import_lite.pb.{h,cc}...
+  Generating unittest_import_public_lite.pb.{h,cc}...
+  Generating unittest_lite.pb.{h,cc}...
+  unittest_lite.pb.cc
+  unittest_import_public_lite.pb.cc
+  unittest_import_lite.pb.cc
+  test_util_lite.cc
+  lite_unittest.cc
+  正在生成代码...
+cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+lite_unittest.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  lite-test.vcxproj -> D:\ServerDemo123\protobuf-2.5.0\vsprojects\Debug\lite-test.exe

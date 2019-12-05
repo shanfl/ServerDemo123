@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (libprotobuf-lite.vcxproj, libprotobuf.vcxproj, libprotoc.vcxproj, lite-test.vcxproj, tests.vcxproj, test_plugin.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(libprotobuf-lite.vcxproj, libprotobuf.vcxproj, lite-test.vcxproj, protoc.vcxproj, tests.vcxproj, test_plugin.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+main.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+main.obj : warning LNK4099: 未找到 PDB“vc142.pdb”(使用“main.obj”或在“D:\ServerDemo123\protobuf-2.5.0\vsprojects\Debug\vc142.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  protoc.vcxproj -> D:\ServerDemo123\protobuf-2.5.0\vsprojects\Debug\protoc.exe
