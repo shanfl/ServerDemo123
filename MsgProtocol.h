@@ -21,9 +21,6 @@ struct MsgHeader
     int32_t     length;
 };
 
-
-
-
 class MsgBase
 {
 public:
