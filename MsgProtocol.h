@@ -4,6 +4,18 @@
 #include <time.h>
 #include "byte_buffer.h"
 
+#include "protobuf-2.5.0/src"
+
+#ifndef PROTOBUF_LITE
+# include <google/protobuf/message.h>  // for Message
+# define ProtobufMessage ::google::protobuf::Message
+#else
+# include <google/protobuf/message_lite.h>  // for MessageLite
+# define ProtobufMessage ::google::protobuf::MessageLite
+#endif
+
+
+
 enum class CompressType
 {
     NONE = 0,
@@ -32,13 +44,15 @@ public:
     void Reset()
     {
         mHeader = {0};  
-        mMsgRaw.clear();
+        //mMsgRaw.clear();
+        mRawData.Clear();
     }
 
     void operator= (const MsgBase& msg)
     {
         mHeader = msg.mHeader;
-        mMsgRaw = msg.mMsgRaw;
+        //mMsgRaw = msg.mMsgRaw;
+        mRawData = msg.mRawData;
     }
 
     bool Parser(const char* msg,int len)
@@ -71,9 +85,22 @@ public:
         return mRawData.size();
     }
 
+    size_t Serialize(int msgid,ProtobufMessage & protomsg)
+    {
+        std::string strmsg = protomsg.SerializeAsString();
+        Reset();   
+        mHeader.msgid       = msgid;
+        mHeader.tm          = time(NULL);
+        mHeader.rawsize     = strmsg.length();
+        mHeader.length      = strmsg.length();
+        mRawData.SetData((const uint8_t*)&mHeader,sizeof(MsgHeader));
+        mRawData.Append((const uint8_t*)strmsg.c_str(),strmsg.length());
+        return mRawData.size();
+    }
+
 
 protected:
     MsgHeader mHeader;
-    std::string mMsgRaw;
+    //std::string mMsgRaw;
     ByteBuffer mRawData;
 };
